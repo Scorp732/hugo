@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>hugo-test</Name>
+  <Repository>jojomi/hugo:latest</Repository>
+  <Registry>https://hub.docker.com/r/jojomi/hugo/</Registry>
+  <Network>proxynet</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/jojomi/docker-hugo</Project>
+  <Overview>Docker image for hugo static page generator (https://gohugo.io)&#xD;
+&#xD;
+You will need to change the default values for  all of the DEFAULT values&#xD;
+&#xD;
+You will need to download a hugo theme and put it in a themes folder at the root. /src/theme/(themename)&#xD;
+&#xD;
+A free theme you can use for example is: terminal&#xD;
+&#xD;
+to download the terminal theme theme in the hugo console run: git clone https://github.com/panr/hugo-theme-terminal.git themes/terminal&#xD;
+&#xD;
+(alternatively you could go to https://hugothemesfree.com/ and download your own theme and put it in the themes folder.)&#xD;
+&#xD;
+once this is set you can run the command: hugo server -t terminal&#xD;
+&#xD;
+Put markdown files in /content &#xD;
+&#xD;
+Put images in /static/images.&#xD;
+</Overview>
+  <Category>Network:Web</Category>
+  <WebUI>http://[IP]:[PORT:1313]</WebUI>
+  <TemplateURL/>
+  <Icon>https://aws1.discourse-cdn.com/standard10/uploads/gohugo/original/2X/2/23140d7329a806826901f45dd5ca56b0be86f355.jpg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1632616756</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Docker image for hugo static page generator (https://gohugo.io)&#xD;
+&#xD;
+You will need to change the default values for  all of the DEFAULT values&#xD;
+&#xD;
+You will need to download a hugo theme and put it in a themes folder at the root. /src/theme/(themename)&#xD;
+&#xD;
+A free theme you can use for example is: terminal&#xD;
+&#xD;
+to download the terminal theme theme in the hugo console run: git clone https://github.com/panr/hugo-theme-terminal.git themes/terminal&#xD;
+&#xD;
+(alternatively you could go to https://hugothemesfree.com/ and download your own theme and put it in the themes folder.)&#xD;
+&#xD;
+once this is set you can run the command: hugo server -t terminal&#xD;
+&#xD;
+Put markdown files in /content &#xD;
+&#xD;
+Put images in /static/images.&#xD;
+</Description>
+  <Networking>
+    <Mode>proxynet</Mode>
+    <Publish>
+      <Port>
+        <HostPort>1313</HostPort>
+        <ContainerPort>1313</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/path/to/config</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>path/to/content</HostDir>
+      <ContainerDir>/src</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/path/to/public</HostDir>
+      <ContainerDir>/output</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>NameOfHugoThemeHere</Value>
+      <Name>HUGO_THEME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>3600</Value>
+      <Name>HUGO_REFRESH_TIME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>IPofYourServerHere</Value>
+      <Name>HUGO_BASEURL</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/path/to/watch</Value>
+      <Name>HUGO_WATCH</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="1313" Default="" Mode="tcp" Description="Container Port: 1313" Type="Port" Display="always" Required="false" Mask="false">1313</Config>
+  <Config Name="Host Path 1" Target="/config" Default="" Mode="rw" Description="Container Path: /config&#13;&#10;&#13;&#10;example: /mnt/user/appdata/hugo" Type="Path" Display="always" Required="false" Mask="false">/path/to/config</Config>
+  <Config Name="Host Key 1" Target="HUGO_THEME" Default="" Mode="" Description="Container Variable: HUGO_THEME&#13;&#10;&#13;&#10;example them name: hugo-theme-mediumish or terminal" Type="Variable" Display="always" Required="false" Mask="false">NameOfHugoThemeHere</Config>
+  <Config Name="Host Key 2" Target="HUGO_REFRESH_TIME" Default="" Mode="" Description="Container Variable: HUGO_REFRESH_TIME" Type="Variable" Display="always" Required="false" Mask="false">3600</Config>
+  <Config Name="Host Key 3" Target="HUGO_BASEURL" Default="" Mode="" Description="Container Variable: HUGO_BASEURL" Type="Variable" Display="always" Required="false" Mask="false">IPofYourServerHere</Config>
+  <Config Name="Host Path 2" Target="/src" Default="" Mode="rw" Description="Container Path: /src&#13;&#10;&#13;&#10;example: IPofYourServerHere" Type="Path" Display="always" Required="false" Mask="false">path/to/content</Config>
+  <Config Name="Host Path 3" Target="/output" Default="" Mode="rw" Description="Container Path: /output&#13;&#10;&#13;&#10;example: /mnt/user/appdata/hugo/public" Type="Path" Display="always" Required="false" Mask="false">/path/to/public</Config>
+  <Config Name="Host Key 4" Target="HUGO_WATCH" Default="" Mode="" Description="Container Variable: HUGO_WATCH&#13;&#10;&#13;&#10;example: /mnt/user/appdata/hugo/content" Type="Variable" Display="always" Required="false" Mask="false">/path/to/watch</Config>
+</Container>
